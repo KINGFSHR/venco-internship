@@ -22,6 +22,6 @@ dog_registry = {dog_id: {"name": dog_name}}
 json.dumps(dog_registry)  
 '{"1": {"name": "Frieda"}}'  
 
-Resource: https://realpython.com/python-json/
+Resource: https://realpython.com/python-json/  
 Quiz: https://realpython.com/quizzes/python-json/
 
