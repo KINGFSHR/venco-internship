@@ -25,15 +25,15 @@ To delete a single directory or folder, use os.rmdir() or pathlib.rmdir(). These
 import os
 
 trash_dir = 'my_documents/bad_dir'  
-try:
-~ os.rmdir(trash_dir)
-except OSError as e:
+try:  
+~ os.rmdir(trash_dir)  
+except OSError as e:  
 ~ print(f'Error: {trash_dir} : {e.strerror}')
 
 Let’s suppose you want to find .txt files that meet certain criteria.
 
 for filename in os.listdir('.'):  
-~ if fnmatch.fnmatch(filename, 'data_*_backup.txt'):
+~ if fnmatch.fnmatch(filename, 'data_*_backup.txt'):  
 ~~ print(filename)  
 
 Resource: https://realpython.com/working-with-files-in-python/  
