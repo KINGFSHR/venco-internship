@@ -2,15 +2,15 @@
 
 ## What was learnt
 
-JSON syntax methods and data types
-Converting Python Dictionaries to JSON and vice versa
+JSON syntax methods and data types  
+Converting Python Dictionaries to JSON and vice versa  
 
-The act of converting data into the JSON format is referred to as serialization. 
+The act of converting data into the JSON format is referred to as serialization.  
 The opposite process, deserialization, involves decoding data from the JSON format back into a usable form within Python.
 
 The json.dump() function has two required arguments:  
-The object you want to write
-The file you want to write into
+ - The object you want to write  
+ - The file you want to write into
 
 ## Operations with code samples
 
