@@ -16,11 +16,11 @@ The file you want to write into
 
 Python’s json module can convert variables to data. This can come in handy when you’re using variables as dictionary keys:
 
-dog_id = 1
-dog_name = "Frieda"
-dog_registry = {dog_id: {"name": dog_name}}
-json.dumps(dog_registry)
-'{"1": {"name": "Frieda"}}'
+dog_id = 1  
+dog_name = "Frieda"  
+dog_registry = {dog_id: {"name": dog_name}}  
+json.dumps(dog_registry)  
+'{"1": {"name": "Frieda"}}'  
 
 Resource: https://realpython.com/python-json/
 Quiz: https://realpython.com/quizzes/python-json/
