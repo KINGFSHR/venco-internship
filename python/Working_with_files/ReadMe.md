@@ -6,6 +6,16 @@ Retrieve file properties
 Create directories  
 Delete files and directories  
 Copy, move, or rename files and directories  
+Traverse directories
+
+os.walk() returns three values on each iteration of the loop:
+
+ - The name of the current folder
+ - A list of folders in the current folder
+ - A list of files in the current folder
+
+On each iteration, it prints out the names of the subdirectories and files.
+To traverse the directory tree in a bottom-up manner, pass in a topdown=False keyword argument to os.walk().
 
 ## Operations with code samples
 
@@ -16,15 +26,15 @@ import os
 
 trash_dir = 'my_documents/bad_dir'  
 try:  
-> os.rmdir(trash_dir)  
+- os.rmdir(trash_dir)
 except OSError as e:  
-> print(f'Error: {trash_dir} : {e.strerror}')
+- print(f'Error: {trash_dir} : {e.strerror}')
 
 Let’s suppose you want to find .txt files that meet certain criteria.
 
 for filename in os.listdir('.'):  
-> if fnmatch.fnmatch(filename, 'data_*_backup.txt'):
->> print(filename)  
+- if fnmatch.fnmatch(filename, 'data_*_backup.txt'):
+-- print(filename)  
 
 Resource: https://realpython.com/working-with-files-in-python/  
 Quiz: https://realpython.com/quizzes/working-with-files-in-python/
