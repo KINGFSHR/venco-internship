@@ -37,5 +37,8 @@ class Task:
         output += "Priority: " + self.priority + "\n"
         output += "Due Date: " + str(self.due_date) + "\n"
         output += "Category: " + self.category + "\n"
-        output += "Status: " + self.status + "\n"
+        if self.status:
+            output += "Status: Completed\n"
+        else:
+            output += "Status: Ongoing\n"
         return output

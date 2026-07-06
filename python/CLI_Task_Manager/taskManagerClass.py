@@ -35,10 +35,31 @@ class TaskManager:
         task.change_status()
         print(task)
 
+    def save_tasks_to_file(self, filename, new):
+        if not new:
+            try:
+                with open(filename, "a") as file:
+                    json.dump([task.get_task_info() for task in self.tasks], file, default=str)
+            except FileNotFoundError:
+                print("File not found. Please check the filename and try again.")
+        else:
+            try:
+                with open(filename, "x") as file:
+                    json.dump([task.get_task_info() for task in self.tasks], file, default=str)
+            except FileNotFoundError:
+                print("File not found. Please check the filename and try again.")
+
+    def update_file(self, filename):
+        try:
+            with open(filename, "w") as file:
+                json.dump([task.get_task_info() for task in self.tasks], file, default=str)
+        except FileNotFoundError:
+            print("File not found. Please check the filename and try again.")
+
 def main():
     task_manager = TaskManager()
     print("New Task Manager")
-    menu = "Enter the following options for the corresponding action:\na(dd) - Add a new task\n(r)emove - Remove a task\n(l)ist - List all tasks\n(c)hange status - Change a task's status\n(q)uit - Quit the program"
+    menu = "Enter the following options for the corresponding action:\n(o)pen - Open an existing file\n(a)dd - Add a new task\n(r)emove - Remove a task\n(l)ist - List all tasks\n(c)hange status - Change a task's status\n(q)uit - Quit the program"
     print(menu)
 
     while True:
@@ -52,6 +73,13 @@ def main():
             try:
                 new_task = taskClass.Task(title, priority, due_date, category, id)
                 task_manager.add_task(new_task)
+                user_choice = input("Do you want to save task to a new file? (y/n): ")
+                if user_choice == "y":
+                    filename = input("Enter new filename to save task (name.json): ")
+                    task_manager.save_tasks_to_file(filename, new=True)
+                else:
+                    filename = input("Enter filename to save task (name.json): ")
+                    task_manager.save_tasks_to_file(filename, new=False)
                 print("Task added successfully.")
             except ValueError as e:
                 print(e)
@@ -64,6 +92,8 @@ def main():
             if task_to_change:
                 task_to_change.change_status()
                 print("Task status changed successfully.")
+                filename = input("Enter filename to save changes (name.json): ")
+                task_manager.update_file(filename)
             else:
                 print("Task not found.")
         elif user_input == "r" or user_input == "remove":
@@ -72,6 +102,8 @@ def main():
             if task_to_remove:
                 task_manager.remove_task(task_to_remove)
                 print("Task removed successfully.")
+                filename = input("Enter filename to save changes (name.json): ")
+                task_manager.update_file(filename)
             else:
                 print("Task not found.")
         elif user_input == "q" or user_input == "quit":
