@@ -1,0 +1,29 @@
+python type
+
+Issues
+- Task Manager tasks list becomes empty each time loop is started. Unable to access tasks from previous loop
+- Task status should be saved as ongoing or completed
+
+New Request
+- User should be able to list just one task.
+- All tasks must be saved to one json file.
+- Tasks saved to the json file should be formatted, i.e it should not be in one line, use indententation of 4.
+- Tasks should be fetched, updated and deleted using their IDs
+- Improve the look of the CLI interface, e.g use "===", "----", newlines, etc..
+- Standardize and validate input from user, e.g file names must have a ".json" extension,
+task priority must be one of the avail options, date input must follow the set format (e.g DD-MM-YYYY should not be
+allowed given the set DD/MM/YYYY format)
+- Also standardize the output of every operation, i.e if i update a task, it should return a response that looks like: {ID: 001
+, Xfiled: value1, YField: value2}
+
+add():
+ fixed
+
+add_result = add()
+print_to_cli(add_result):
+ vnerne
+ print(====)
+
+
+python type checking
+python pydantic

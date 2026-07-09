@@ -3,9 +3,11 @@ import datetime
 class Task:
     def __init__(self, title, priority, due_date, category, id):
         try:
-            duedate = datetime.date(int(due_date.split("/")[2]), int(due_date.split("/")[1]), int(due_date.split("/")[0]))
+            duedate = datetime.date(int(due_date.split("-")[2]), int(due_date.split("-")[1]), int(due_date.split("-")[0]))
         except ValueError:
-            raise ValueError("Invalid date format. Please use DD/MM/YYYY.")
+            raise ValueError("Invalid date format. Please use DD-MM-YYYY.")
+        except IndexError:
+            raise ValueError("Invalid date format. Please use DD-MM-YYYY.")
         if priority not in ["Low", "Medium", "High"]:
             raise ValueError("Invalid priority. Please use 'Low', 'Medium', or 'High'.")
         self.title = title
